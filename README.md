@@ -30,13 +30,18 @@ To use this controller, clone the repository and run the Spring Boot application
 
 - English: GET `/api/messages/business/en/{key}`
 - Persian: GET `/api/messages/business/fa/{key}`
+- English(parameters): GET `/api/messages/business/en/{key}/{operationName}/{parameter}`
+- Persian(parameters): GET `/api/messages/business/fa/{key}/{operationName}/{parameter}`
 
 ### Validation Messages
 
 - English: GET `/api/messages/validation/en/{key}`
 - Persian: GET `/api/messages/validation/fa/{key}`
-
-Replace `{key}` with the desired message key.
+<br>
+<br>
+* Replace `{key}` with the desired message key.
+* Replace `{operationName}` with the operation name.
+*  Replace `{parameter}` with the parameter.
 
 ## Installation
 

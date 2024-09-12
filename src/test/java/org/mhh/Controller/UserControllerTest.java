@@ -16,7 +16,7 @@ class UserControllerTest {
     private UserController userController;
 
     @Test
-    void testGetBusinessMessageEnglish() {
+    void testGetBusinessMessageEnglishTest() {
         String expectedKey = "business-success-message";
         ResponseEntity<String> result = userController.getBusinessMessageEnglish(expectedKey);
         assertNotNull(result);
@@ -25,16 +25,16 @@ class UserControllerTest {
     }
 
     @Test
-    void testGetBusinessMessagePersian() {
+    void testGetBusinessMessagePersianTest() {
         String expectedKey = "business-success-message";
         ResponseEntity<String> result = userController.getBusinessMessagePersian(expectedKey);
         assertNotNull(result);
         assertEquals(200, result.getStatusCodeValue());
-        assertEquals("?????? ????? ?? ?????? ?? ????? ????.", result.getBody());
+        assertEquals("عملیات تجاری با موفقیت به پایان رسید.", result.getBody());
     }
 
     @Test
-    void testGetValidationMessageEnglish() {
+    void testGetValidationMessageEnglishTest() {
         String expectedKey = "error-invalid-email";
         ResponseEntity<String> result = userController.getValidationMessageEnglish(expectedKey);
         assertNotNull(result);
@@ -43,11 +43,27 @@ class UserControllerTest {
     }
 
     @Test
-    void testGetValidationMessagePersian() {
+    void testGetValidationMessagePersianTest() {
         String expectedKey = "error-invalid-email";
         ResponseEntity<String> result = userController.getValidationMessagePersian(expectedKey);
         assertNotNull(result);
         assertEquals(200, result.getStatusCodeValue());
-        assertEquals("???? ????? ??????? ???", result.getBody());
+        assertEquals("ایمیل نا معتبر است", result.getBody());
+    }
+    @Test
+    void getBusinessMessageEnglishWithParameterTest() {
+        String expectedKey = "business-test-message";
+        ResponseEntity<String> result = userController.getBusinessMessageEnglishWithParameter(expectedKey,"notification","Test");
+        assertNotNull(result);
+        assertEquals(200, result.getStatusCodeValue());
+        assertEquals("notification operation by this parameter Test is completed successfully.", result.getBody());
+    }
+    @Test
+    void getBusinessMessagePersianWithParameterTest() {
+        String expectedKey = "business-test-message";
+        ResponseEntity<String> result = userController.getBusinessMessagePersianWithParameter(expectedKey,"notification","Test");
+        assertNotNull(result);
+        assertEquals(200, result.getStatusCodeValue());
+        assertEquals("عملیات notification توسط این پارامتر Test با موفقیت انجام شد.", result.getBody());
     }
 }

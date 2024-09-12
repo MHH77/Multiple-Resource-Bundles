@@ -21,14 +21,24 @@ public class UserService {
     public String getBusinessMessageEnglish(String key) {
         return businessMessageConfig.getMessage(key, null, Locale.getDefault());
     }
+
+    public String getBusinessMessageEnglishWithParameter(String key, String operationName, String parameter) {
+        return businessMessageConfig.getMessage(key, new Object[]{operationName,parameter}, Locale.getDefault());
+    }
+
     public String getBusinessMessagePersian(String key) {
-        return businessMessageConfig.getMessage(key, null,new Locale("fa"));
+        return businessMessageConfig.getMessage(key, null, new Locale("fa"));
+    }
+
+    public String getBusinessMessagePersianWithParameter(String key,String operationName, String parameter) {
+        return businessMessageConfig.getMessage(key, new Object[]{operationName,parameter}, new Locale("fa"));
     }
 
     public String getValidationMessageEnglish(String key) {
-        return validationMessageConfig.getMessage(key, null,Locale.getDefault());
+        return validationMessageConfig.getMessage(key, null, Locale.getDefault());
     }
+
     public String getValidationMessagePersian(String key) {
-        return validationMessageConfig.getMessage(key, null,new Locale("fa"));
+        return validationMessageConfig.getMessage(key, null, new Locale("fa"));
     }
 }

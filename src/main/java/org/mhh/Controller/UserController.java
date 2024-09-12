@@ -18,6 +18,18 @@ public class UserController {
         return ResponseEntity.ok(userService.getBusinessMessageEnglish(key));
     }
 
+    @GetMapping("/business/en/{key}/{operationName}/{parameter}")
+    public ResponseEntity<String> getBusinessMessageEnglishWithParameter(@PathVariable String key,@PathVariable String operationName,
+                                                                         @PathVariable String parameter) {
+        return ResponseEntity.ok(userService.getBusinessMessageEnglishWithParameter(key,operationName,parameter));
+    }
+
+    @GetMapping("/business/fa/{key}/{operationName}/{parameter}")
+    public ResponseEntity<String> getBusinessMessagePersianWithParameter(@PathVariable String key,@PathVariable String operationName,
+                                                                         @PathVariable String parameter) {
+        return ResponseEntity.ok(userService.getBusinessMessagePersianWithParameter(key,operationName,parameter));
+    }
+
     @GetMapping("/business/fa/{key}")
     public ResponseEntity<String> getBusinessMessagePersian(@PathVariable String key) {
         return ResponseEntity.ok(userService.getBusinessMessagePersian(key));
