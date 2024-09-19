@@ -1,6 +1,7 @@
 ﻿# Multiple-Resource-Bundles
 # UserController
 
+
 A Spring Boot REST controller demonstrating support for multiple resource bundles.
 
 ## Table of Contents
